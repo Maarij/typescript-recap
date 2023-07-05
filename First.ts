@@ -1,17 +1,22 @@
 interface Person {
     firstName: string,
     lastName: string,
-    job: job
+    job?: job,
+    isVisitor?: boolean
 }
 
 type job = 'Engineer' | 'Programmer'
 
-function generateEmail(input: Person): string {
-    return `${input.firstName}.${input.lastName}@email.com`
+function generateEmail(input: Person, force?: boolean): string | undefined {
+    if (input.isVisitor && !force) {
+        return undefined
+    } else {
+        return `${input.firstName}.${input.lastName}@email.com`
+    }
 }
 
 console.log(generateEmail({
     firstName: 'John',
     lastName: 'Doe',
-    job: 'Engineer'
+    isVisitor: true
 }));
