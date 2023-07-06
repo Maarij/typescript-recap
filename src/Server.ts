@@ -1,7 +1,11 @@
+interface IServer {
+    startServer(): void
+    stopServer(): void
+}
 
-abstract class BaseServer {
-    protected port: number;
-    protected address: string;
+class Server implements IServer {
+    public port: number;
+    public address: string;
 
     constructor(port: number, address: string) {
         this.port = port;
@@ -12,19 +16,8 @@ abstract class BaseServer {
         console.log(`Starting server at: ${this.address}:${this.port}`)
     }
 
-    abstract stopServer(): void;
+    stopServer(): void { }
 }
 
-class DbServer extends BaseServer {
-    constructor(port: number, address: string) {
-        super(port, address);
-        console.log('calling db server constructor');
-    }
-
-    stopServer(): void {
-        console.log('stopping db server constructor');
-    }
-}
-
-const someServer = new DbServer(8080, 'localhost');
+const someServer: IServer = new Server(8080, 'localhost');
 someServer.startServer();
