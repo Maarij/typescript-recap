@@ -2,9 +2,9 @@
   "compilerOptions": {
     "lib": [
       "DOM",
-      "ES6"
+      "ES2022"
     ],
-    "target": "ES2019",
+    "target": "ES2022",
     "rootDir": "src",
     "outDir": "dist",
     "baseUrl": "src",
@@ -15,6 +15,7 @@
     "noImplicitThis": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
-    "strict": true
+    "strict": true,
+    "experimentalDecorators": true
   }
 }
