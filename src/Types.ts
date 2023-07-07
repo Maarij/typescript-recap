@@ -1,7 +1,7 @@
 let abc = undefined;
 const def = null;
 
-function getData(): string | undefined { 
+function getData(): string | undefined {
     return '';
 }
 
@@ -18,3 +18,11 @@ let someSensitiveValue: string;
 if (typeof input === 'string') {
     someSensitiveValue = input;
 }
+
+function doTasks(tasks: number): void | never {
+    if (tasks > 3) {
+        throw new Error('Too many tasks!');
+    }
+}
+
+const stuff = doTasks(2);
